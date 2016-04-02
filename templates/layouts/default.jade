@@ -10,7 +10,7 @@ html
 		meta(charset="utf-8")
 		meta(name="viewport", content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width")
 		
-		title= title || 'Keystone Demo'
+		title= title || 'Hope For The Young'
 		link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
 		link(href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700', rel='stylesheet')
 		link(href="/styles/themes/" + currentTheme + ".min.css", rel="stylesheet")
@@ -29,23 +29,13 @@ html
 						span.icon-bar
 						span.icon-bar
 						span.icon-bar
-					a.navbar-brand(href='/') KeystoneJS
+					a.navbar-brand(href='/') Hope For The Young
 				.collapse.navbar-collapse#navbar-collapse
 					ul.nav.navbar-nav.navbar-left
 						each link in navLinks
 							li(class=(section === link.key ? 'active' : null)): a(href=link.href)= link.label
-					ul.nav.navbar-nav.navbar-right
-						if themes && themes.length
-							li.dropdown
-								a.dropdown-toggle(href="#", data-toggle="dropdown", role="button", aria-haspopup="true", aria-expanded="false")
-									| Themes 
-									span.caret
-								ul.dropdown-menu
-									each theme in themes
-										li(class=currentTheme === theme ? 'active' : '')
-											a(href='?theme=' + theme)= theme
 						if user
-							li: a(href='/keystone') Admin UI
+							li: a(href='/keystone') Admin
 							li: a(href='/keystone/signout') Sign Out
 						else
 							li: a(href='/keystone/signin') Sign In

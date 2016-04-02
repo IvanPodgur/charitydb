@@ -3,11 +3,12 @@ const middleware = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
 
 keystone.pre('routes', function (req, res, next) {
-	res.locals.navLinks = [
+	res.locals.navLinks = [	];
+	res.locals.navLinks2 = [
 		{ label: 'Home', key: 'home', href: '/' },
 		{ label: 'Blog', key: 'blog', href: '/blog' },
 		{ label: 'Gallery', key: 'gallery', href: '/gallery' },
-		{ label: 'Contact', key: 'contact', href: '/contact' },
+		{ label: 'Contact', key: 'contact', href: '/contact' }
 	];
 	res.locals.user = req.user;
 	next();

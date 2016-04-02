@@ -2,8 +2,8 @@ var keystone = require('keystone');
 
 keystone.init({
 
-	'name': 'Keystone Demo',
-	'brand': 'Demo',
+	'name': 'Hope For The Young',
+	'brand': 'Hope',
 
 	'favicon': 'public/favicon.ico',
 	'less': 'public',
@@ -45,11 +45,12 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	'posts': ['posts', 'post-comments', 'post-categories'],
-	'galleries': 'galleries',
-	'enquiries': 'enquiries',
-	'users': 'users',
-	'field-tests': 'things'
+
+	'admin': ['users','payments', 'donations' ], 
+	'Britain' : ['volunteerbritains','youngbritains', 'eventbritains'],
+	'India' : ['volunteerindia', 'youngindia', 'eventindia'],
+	'Cambodia' : ['volunteercambodia','youngcambodia', 'eventcambodia']
+
 });
 
 keystone.start();
