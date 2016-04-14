@@ -9,12 +9,13 @@ var Youngpeople = new keystone.List('Youngpeople', {
 
 Youngpeople.add({
 	name: { type: String, required: true, initial: true },
-	referenceDate: { type: Types.Date, initial: true  },
-	referenceAgency: {type: String, initial: true  },
+	referralDate: { type: Types.Date, initial: true  },
+	referralAgency: {type: String, initial: true  },
 	intials: { type: String, initial: true },
 	nationality: { type: String },
 	yearsInUK: {type: Types.Number},
-	dob: { type: Types.Date},
+	entryDateToUK: {type: Types.Date},
+	dob: { type: Types.Date, format: 'DD-MM-YYYY'},
 	age: {type: Types.Number},
 	currentAccomodation: {type: String},
 	college: {type: String},
@@ -29,9 +30,12 @@ Youngpeople.add({
 	timeInMentoring: {type: String},
 	mentoringLocation: {type: String},
 	mentoringFrequency: {type: String},
-	lengthOfMenoting: {type: String},
+	lengthOfMentoring: {type: String},
 	lastDate: { type: Types.Date},
-	outcome: {type: String}
+	outcome: {type: Types.Textarea},
+	personalDevPlanMnth1: { type: Types.Select,  options: 'yes, no', initial: true  },
+	personalDevPlanMnth2: { type: Types.Select,  options: 'yes, no', initial: true  },
+	personalDevPlanMnth3: { type: Types.Select,  options: 'yes, no', initial: true  }
 
 });
 

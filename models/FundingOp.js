@@ -10,7 +10,7 @@ var Fundingopportunity = new keystone.List('Fundingopportunity', {
 Fundingopportunity.add({
 	name: { type: String, required: true, initial: true },
 	website: { type: String,  initial: true },
-	whatTheySupport: { type: String,  initial: true },
+	whatTheySupport: { type: Types.Textarea,  initial: true },
 	amountTheyCanGive: { type: String,  initial: true },
 	applicationDeadline: { type: String,  initial: true },
 	deadlineMet: { type: Types.Select, options: 'yes, no', initial: true },

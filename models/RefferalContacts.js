@@ -16,11 +16,12 @@ Referralcontact.add({
 	contactNumber: { type: String, initial: true },
 	contactAddress: { type: String, initial: true },
 	dateOfFirstContact: { type: Types.Date, initial: true  },
+	dateOfLastContact: { type: Types.Date, initial: true  },
 	response: { type: Types.Select, options: 'yes, no', initial: true },
 	futurePotential: { type: Types.Select, options: 'yes, no', initial: true },
-	notesAndActions: { type: String }
+	notesAndActions: { type: Types.Textarea,initial: true  }
 });
 
 Referralcontact.track = true;
-Referralcontact.defaultColumns = 'name|20%, dob|15%, nationality|10%, supportReasons|20%';
+Referralcontact.defaultColumns = 'name|20%, category|15%, contactName|10%, futurePotential|10%';
 Referralcontact.register();

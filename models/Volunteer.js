@@ -22,11 +22,7 @@ Volunteer.add({
 	completedInduction: { type: Types.Select,  options: 'yes, no', initial: true  },
 	personalDevPlanMnth1: { type: Types.Select,  options: 'yes, no', initial: true  },
 	personalDevPlanMnth2: { type: Types.Select,  options: 'yes, no', initial: true  },
-	personalDevPlanMnth3: { type: Types.Select,  options: 'yes, no', initial: true  },
-	Experience: {type: Types.Textarea, initial: true },
-	OtherLanguages: {type: String, initial: true, many: true },
-	linksWithOrganisations: {type: String, initial: true },
-	Experience: {type: Types.Number, initial: true }
+	personalDevPlanMnth3: { type: Types.Select,  options: 'yes, no', initial: true  }
 
 });
 

@@ -46,8 +46,8 @@ keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
 
-	'all': ['events','mentorevents', 'fundraisingevents', 'supporters', 'admissionsheets', 'donors', 'referrals','referralcontacts', 'servicedirectories', 'youngpeople', 'mentoringrecords','volunteeravailabilities' ], 
-	'finance': ['events','mentorevents', 'fundraisingevents', 'supporters' ], 
+	'mentoring': ['events','referrals','referralcontacts', 'servicedirectories', 'youngpeople', 'volunteers', 'mentoringrecords','volunteeravailabilities', 'servicedirectories','expensepaids' ], 
+	'finance': ['mentorevents', 'fundraisingevents', 'supporters' ], 
 
 	'admin': ['users','payments', 'donations' ], 
 	'Britain' : ['volunteerbritains','youngbritains', 'eventbritains'],

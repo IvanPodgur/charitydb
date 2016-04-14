@@ -10,7 +10,6 @@ Mentoringrecord.add({
 	volunteer: { type: Types.Relationship, ref: 'Volunteer', initial: true },
 	youngPerson: { type: Types.Relationship, ref: 'Youngpeople', initial: true  },
 	startDate: { type: Types.Date, initial: true },
-	lengthOfTimeMentoring: { type: String, initial: true },
 	mentoringLocation: { type: String, initial: true },
 	mentoringFrequency: { type: String, initial: true },
 	mentoringDay: { type: String, initial: true },

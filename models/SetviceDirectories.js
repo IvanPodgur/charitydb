@@ -12,8 +12,8 @@ Servicedirectory.add({
 	nameOfProvision: { type: String, initial: true },
 	address: { type: String, initial: true },
 	contactInfo: { type: String, initial: true },
-	criteriaAndDescription: { type: String, initial: true },
-	notes: { type: String, initial: true }
+	criteriaAndDescription: { type: Types.Textarea, initial: true },
+	notes: { type: Types.Textarea, initial: true }
 });
 
 Servicedirectory.track = true;

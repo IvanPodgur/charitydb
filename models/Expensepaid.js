@@ -2,7 +2,8 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var Expensepaid = new keystone.List('Expensepaid', {
-	map: { name: 'date' }
+	label:  "Expenses",
+	map: { name: 'name' }
 
 });
 
@@ -15,10 +16,11 @@ Expensepaid.add({
 	otherExpenses: {type: String, initial: true },
 	nonReclaimableVAT: {type: String, initial: true },
 	reaclaimableVAT: {type: String, initial: true },
-	total: {type: String, initial: true }
+	total: {type: String, initial: true },
+	recieptsNotes: {type: Types.Textarea, initial: true}
 
 });
 
 Expensepaid.track = true;
-Expensepaid.defaultColumns = 'details|40%, date|20%, type|20%, total|10%';
+Expensepaid.defaultColumns = 'name|20%, total|20%, recieptsNotes|40%';
 Expensepaid.register();

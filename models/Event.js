@@ -4,11 +4,12 @@ var Types = keystone.Field.Types;
 var Event = new keystone.List('Event', {
 	label: 'Events',
 	autokey: { from: 'title', path: 'key', unique: true },
+	map: { name: 'title'}
 });
 
 Event.add({
 	title: {type: String, required: true, initial: true  },
-	date: { type: Types.Date, initial: true  },
+	date: { type: Types.Date, initial: true},
 	venue: { type: String, initial: true },
 	address: { type: String,  initial: true },
 	contactName: { type: String,  initial: true },
