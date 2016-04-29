@@ -10,10 +10,17 @@ User.add({
 	name: { type: Types.Name, required: true, index: true },
 	email: { type: Types.Email, initial: true, required: true, index: true },
 	phone: { type: String, width: 'short' },
-	photo: { type: Types.CloudinaryImage, collapse: true },
+	 role: { 
+    type: Types.Select,
+    options: 'Admin, EducationFund, mentoring, India, Cambodia', 
+    required: true, initial: true
+  	},
 	password: { type: Types.Password, initial: true, required: false },
 }, 'Permissions', {
 	isProtected: { type: Boolean, noedit: true, hidden: true },
+	isAdmin: { type: Boolean, label: 'Can access Keystone', index: true },
+	isSupperAdmin: { type: Boolean, label: 'Is Supper Admin', index: true },
+	roles:{ type: Types.TextArray, label: 'Roles (do not use empty string please!)' }
 });
 
 // Provide access to Keystone
@@ -29,7 +36,7 @@ User.schema.methods.wasActive = function () {
 }
 
 /**
- * DEMO USER PROTECTION
+ * USER PROTECTION
  * The following code prevents anyone updating the default admin user
  * and breaking access to the demo
  */
@@ -48,7 +55,7 @@ User.schema.path('password').set(function (value) {
 });
 
 /**
- * END DEMO USER PROTECTION
+ * END USER PROTECTION
  */
 
 User.track = true;

@@ -3,6 +3,7 @@ const middleware = require('./middleware');
 const importRoutes = keystone.importer(__dirname);
 
 keystone.pre('routes', function (req, res, next) {
+	console.log("inlinde middlerware is called")
 	res.locals.navLinks = [	];
 	res.locals.navLinks2 = [
 		{ label: 'Home', key: 'home', href: '/' },
@@ -12,6 +13,8 @@ keystone.pre('routes', function (req, res, next) {
 });
 
 keystone.pre('render', middleware.theme);
+keystone.pre('routes', middleware.initMyAuthorization);
+keystone.pre('routes', middleware.initSupperAdminChecking);
 keystone.pre('render', middleware.flashMessages);
 
 keystone.set('404', function (req, res, next) {
@@ -27,10 +30,10 @@ var routes = {
 exports = module.exports = function (app) {
 
 	// Views
-	app.get('/', routes.views.index);
+	app.all('/', routes.views.index);
 
 
 	// Downloads
-	app.get('/download/users', routes.download.users);
+	app.all('/download/users', routes.download.users);
 
 }
