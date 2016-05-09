@@ -8,8 +8,8 @@ var Donation = new keystone.List('Donation', {
 
 Donation.add({
 	date: { type: Types.Date, required: true, initial: true  },
+	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
 	donor: {type: String, required: true, initial: true },
-	catergory: { type: Types.Select, options: 'General, EF, Mentoring, India, Cambodia', initial: true },
 	amount: {type: String, required: true, initial: true}
 
 });

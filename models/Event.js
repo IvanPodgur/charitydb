@@ -9,6 +9,8 @@ var Event = new keystone.List('Event', {
 
 Event.add({
 	title: {type: String, required: true, initial: true  },
+	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
+	venue: { type: String, initial: true },
 	date: { type: Types.Date, initial: true},
 	venue: { type: String, initial: true },
 	address: { type: String,  initial: true },

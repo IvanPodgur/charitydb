@@ -9,6 +9,7 @@ var Fundingopportunity = new keystone.List('Fundingopportunity', {
 
 Fundingopportunity.add({
 	name: { type: String, required: true, initial: true },
+	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
 	website: { type: String,  initial: true },
 	whatTheySupport: { type: Types.Textarea,  initial: true },
 	amountTheyCanGive: { type: String,  initial: true },

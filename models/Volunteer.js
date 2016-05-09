@@ -7,8 +7,10 @@ var Volunteer = new keystone.List('Volunteer', {
 	map: {name: 'name'}
 });
 
-Volunteer.add({
+Volunteer.add(
+	'Geeneral Details',{
 	name: { type: String, required: true,initial: true },
+	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
 	applicationDate: { type: Types.Date, initial: true },
 	initials: { type: String, initial: true  },
 	sex: { type: Types.Select,  options: 'male, female', initial: true  },
@@ -19,10 +21,11 @@ Volunteer.add({
 	mobile: {type: String, initial: true },
 	address: {type: String, initial: true },
 	progressOfDBS: {type: String, initial: true },
-	completedInduction: { type: Types.Select,  options: 'yes, no', initial: true  },
-	personalDevPlanMnth1: { type: Types.Select,  options: 'yes, no', initial: true  },
-	personalDevPlanMnth2: { type: Types.Select,  options: 'yes, no', initial: true  },
-	personalDevPlanMnth3: { type: Types.Select,  options: 'yes, no', initial: true  }
+	}, 'Mentorign Specific Data',{
+	completedInduction: { type: Types.Select,  options: 'yes, no' },
+	personalDevPlanMnth1: { type: Types.Select,  options: 'yes, no' },
+	personalDevPlanMnth2: { type: Types.Select,  options: 'yes, no' },
+	personalDevPlanMnth3: { type: Types.Select,  options: 'yes, no' }
 
 });
 

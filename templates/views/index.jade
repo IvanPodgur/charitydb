@@ -8,11 +8,13 @@ block content
 			.panel-heading
 				h3.panel-title: a(href='/keystone/signin') Log Into Hope For The Young Filesystem
 			.panel-body
-				p You can sign in below with the username <code>test@test.com</code> and the password <code>test</code>
-				if user
-					a(href='/keystone').btn.btn-default Got to Admin
-					a(href='/keystone/signout').btn.btn-link Sign out
-				else
-					a(href='/keystone/signin').btn.btn-default Sign in
+				.col-10
+				.col-80
+					p     You can sign in below with the username <code>test@test.com</code> and the password <code>test</code>
+					if user
+						a(href='/keystone').btn.btn-default Got to Admin
+						a(href='/keystone/signout').btn.btn-link Sign out
+					else
+						a(href='/keystone/signin').btn.btn-default Sign in
 			
 	

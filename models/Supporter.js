@@ -2,6 +2,7 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var Supporter = new keystone.List('Supporter', {
+	label: 'Funders',
 	autokey: { from: 'name', path: 'key', unique: true },
 	map: {name: 'name'}
 });

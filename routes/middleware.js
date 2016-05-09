@@ -1,31 +1,40 @@
-var _ = require('lodash');
+/**
+ * This file contains the common middleware used by your routes.
+ * 
+ * Extend or replace these functions as your application requires.
+ * 
+ * This structure is not enforced, and just a starting point. If
+ * you have more middleware you may want to group it as separate
+ * modules in your project's /lib directory.
+ */
 
-exports.theme = function (req, res, next) {
-	if (req.query.theme) {
-		req.session.theme = req.query.theme;
-	}
-	res.locals.themes = [
-		'Bootstrap',
-		'Cerulean',
-		'Cosmo',
-		'Cyborg',
-		'Darkly',
-		'Flatly',
-		'Journal',
-		'Lumen',
-		'Paper',
-		'Readable',
-		'Sandstone',
-		'Simplex',
-		'Slate',
-		'Spacelab',
-		'Superhero',
-		'United',
-		'Yeti',
+var _ = require('underscore');
+
+
+/**
+	Initialises the standard view locals
+	
+	The included layout depends on the navLinks array to generate
+	the navigation in the header, you may wish to change this array
+	or replace it with your own templates / logic.
+*/
+
+exports.initLocals = function(req, res, next) {
+	
+	var locals = res.locals;
+	
+	locals.navLinks = [
+		{ label: 'Home',		key: 'home',		href: '/' }
 	];
-	res.locals.currentTheme = req.session.theme || 'Bootstrap';
+	
+	locals.user = req.user;
+	
 	next();
+	
 };
+
+
+
 
 function intersect(a, b) {
     var d = {};
@@ -44,18 +53,24 @@ function intersect(a, b) {
     }
 }
 
+
+exports.myLogger = function (req, res, next) {
+  console.log('LOGGED');
+  next();
+};
+
 exports.initMyAuthorization = function(req, res, next) {
 
 	console.log("middleware STARTED");
+	console.log(req.path);
 	var useMyAuthorization = true;
 	if(useMyAuthorization){
 		var managePathOrItem = true; // true-- un authorized user can not see the list, false un authorized user can not access item page
 		var rules = [
 			{path:"XxObj",roles:['aa']},
-			{path:"testobjpath",roles:['cc','xx','zz']},
-			{path:"donor",roles:['cc','xx','zz']},
-			
-
+			{path:"supporters",roles:['finance']},
+			{path:"donations",roles:['finance']},
+			{path:"yes",roles:['admin']}
 		];
 
 		var result_can_next = true;
@@ -154,7 +169,7 @@ exports.initSupperAdminChecking = function(req, res, next) {
 	// 	next();
 	// }
 	var managePathOrItem = false; // true-- un authorized user can not see the list, false un authorized user can not access item page
-	var indexOfUsersURL = req.path.indexOf("/keystone/users");
+	var indexOfUsersURL = req.path.indexOf("/keystone/yes");
 	if(managePathOrItem){
 		//solution for :  blocking common users accessing all user management pages including list and item pages.
 		if(indexOfUsersURL == 0){
@@ -178,7 +193,7 @@ exports.initSupperAdminChecking = function(req, res, next) {
 				//Currently keystone do creating by posting to list url
 				// but do deleting by getting keystone/api/xxobj/delete.
 				// They didn't manage all of these RESTful api well, so my code is also ugly here:
-				if(req.path == "/keystone/users" || req.path == "/keystone/users/"){
+				if(req.path == "/keystone/yes" || req.path == "/keystone/yes/"){
 					if(!req.user.isSupperAdmin){
 						if(req.method.toLowerCase() !=  "get"){
 							var err = new Error('Your acount cannot do this Operation! A supper Admin user is needed!');
@@ -190,7 +205,7 @@ exports.initSupperAdminChecking = function(req, res, next) {
 
 				//http://localhost:3000/keystone/api/testobjpath/delete?id=54d33fad95e28a5c039335b3&_csrf=xf4aFWa51o%2FycPG32O39ksMniGLeGX90Gmbl8%3D
 				//fix bug of unauthorized use can delete object if the authorisation control is on "item"
-				var indexOfDeleteItemURL = req.path.indexOf("/keystone/api/users/delete");
+				var indexOfDeleteItemURL = req.path.indexOf("/keystone/api/yes/delete");
 				if(indexOfDeleteItemURL == 0 ){
 					if(!req.user.isSupperAdmin){
 						var err = new Error('Your acount cannot do delete Operation! A supper Admin user is needed!');
@@ -201,10 +216,10 @@ exports.initSupperAdminChecking = function(req, res, next) {
 
 
 		//solution for : non super user can only change her/his account.
-		if(indexOfUsersURL == 0 && req.path.length > "/keystone/users/".length){
+		if(indexOfUsersURL == 0 && req.path.length > "/keystone/yes/".length){
 			if(req.user.isSupperAdmin){ //super user  
 				next();
-			}else if(req.path == "/keystone/users/" + req.user._id){// for current user
+			}else if(req.path == "/keystone/yes/" + req.user._id){// for current user
 				next();
 			}else{
 				var err = new Error('You can only manage your account. To manage other accounts you need a supper admin account.');
@@ -216,13 +231,37 @@ exports.initSupperAdminChecking = function(req, res, next) {
 	}
 };
 
-exports.flashMessages = function (req, res, next) {
+/**
+	Fetches and clears the flashMessages before a view is rendered
+*/
+
+exports.flashMessages = function(req, res, next) {
+	
 	var flashMessages = {
 		info: req.flash('info'),
 		success: req.flash('success'),
 		warning: req.flash('warning'),
 		error: req.flash('error')
 	};
-	res.locals.messages = _.any(flashMessages, function (msgs) { return msgs.length }) ? flashMessages : false;
+	
+	res.locals.messages = _.any(flashMessages, function(msgs) { return msgs.length; }) ? flashMessages : false;
+	
 	next();
+	
+};
+
+
+/**
+	Prevents people from accessing protected pages when they're not signed in
+ */
+
+exports.requireUser = function(req, res, next) {
+	
+	if (!req.user) {
+		req.flash('error', 'Please sign in to access this page.');
+		res.redirect('/keystone/signin');
+	} else {
+		next();
+	}
+	
 };

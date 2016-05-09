@@ -8,7 +8,8 @@ var Mentoringrecord = new keystone.List('Mentoringrecord', {
 
 Mentoringrecord.add({
 	volunteer: { type: Types.Relationship, ref: 'Volunteer', initial: true },
-	youngPerson: { type: Types.Relationship, ref: 'Youngpeople', initial: true  },
+	youngPerson: { type: Types.Relationship, ref: 'Referral', initial: true  },
+	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
 	startDate: { type: Types.Date, initial: true },
 	mentoringLocation: { type: String, initial: true },
 	mentoringFrequency: { type: String, initial: true },

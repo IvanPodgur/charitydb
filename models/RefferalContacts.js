@@ -9,6 +9,7 @@ var Referralcontact = new keystone.List('Referralcontact', {
 
 Referralcontact.add({
 	name: { type: String, required: true, initial: true },
+	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
 	category: { type: String, required: true, initial: true },
 	contactName: { type: String, required: true, initial: true },
 	contactRole: { type: String, initial: true },

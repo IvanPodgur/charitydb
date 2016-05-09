@@ -9,6 +9,7 @@ var Servicedirectory = new keystone.List('Servicedirectory', {
 
 Servicedirectory.add({
 	pathway: { type: String, required: true, initial: true },
+	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia', initial: true},
 	nameOfProvision: { type: String, initial: true },
 	address: { type: String, initial: true },
 	contactInfo: { type: String, initial: true },
