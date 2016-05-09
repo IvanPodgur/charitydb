@@ -9,7 +9,7 @@
 
 exports.create = {
 	Yes: [
-		{ 'name.first': 'Admin', 'name.last': 'User', email: 'kami@hope.com', password: 'test', isAdmin: true, isSupperAdmin: true }
+		{ 'name.first': 'Admin', 'name.last': 'User', email: 'matt@hope.com', password: 'test', isAdmin: true, isSupperAdmin: true }
 	]
 };
 
