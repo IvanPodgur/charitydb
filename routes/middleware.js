@@ -67,7 +67,7 @@ exports.initMyAuthorization = function(req, res, next) {
 	if(useMyAuthorization){
 		var managePathOrItem = true; // true-- un authorized user can not see the list, false un authorized user can not access item page
 		var rules = [
-			{path:"supporters",roles:['finance', 'admin']},
+			{path:"supporters",roles:['user', 'admin']},
 			{path:"donations",roles:['finance', 'admin']},
 			{path:"yes",roles:['admin']},
 			{path:"volunteers",roles:['user', 'admin']},

@@ -14,11 +14,11 @@ Donation.add({
 	email: {type: String, initial: true },
 	address: {type: String, initial: true },
 	postCode: {type: String, initial: true },
+	country: {type: String, initial: true},
 	dateOfDonation: { type: Types.Date, initial: true  },
 	paymentMethod: {type: String, initial: true },
 	frequency: {type: String, initial: true },
-	amount: {type: String, initial: true},
-	region: {type: String, initial: true}
+	amount: {type: String, initial: true}
 
 });
 
