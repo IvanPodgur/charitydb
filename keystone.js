@@ -88,10 +88,10 @@ keystone.set('email tests', require('./routes/emails'));
 // Configure the navigation bar in Keystone's Admin UI
 
 keystone.set('nav', {
-	'Hope For The Young': ['referrals','volunteers','volunteeravailabilities', 'events','referralcontacts', 'servicedirectories',  'servicedirectories','expensepaids', 'fundingopportunities' ], 
+	'Hope For The Young': ['referrals','volunteers','volunteeravailabilities','referralcontacts','servicedirectories',  'events', 'expensepaids', 'fundingopportunities', 'supporters' ], 
 
 	'mentoring': [ 'mentoringrecords' ], 
-	'finance': [ 'donations', 'supporters' ], 
+	'finance': [ 'donations' ], 
 
 	'Admin': 'yes'
 });

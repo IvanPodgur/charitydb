@@ -67,10 +67,19 @@ exports.initMyAuthorization = function(req, res, next) {
 	if(useMyAuthorization){
 		var managePathOrItem = true; // true-- un authorized user can not see the list, false un authorized user can not access item page
 		var rules = [
-			{path:"XxObj",roles:['aa']},
-			{path:"supporters",roles:['finance']},
-			{path:"donations",roles:['finance']},
-			{path:"yes",roles:['admin']}
+			{path:"supporters",roles:['finance', 'admin']},
+			{path:"donations",roles:['finance', 'admin']},
+			{path:"yes",roles:['admin']},
+			{path:"volunteers",roles:['user', 'admin']},
+			{path:"referrals",roles:['user', 'admin']},
+			{path:"volunteeravailabilities",roles:['user', 'admin']},
+			{path:"referralcontacts",roles:['user', 'admin']},
+			{path:"servicedirectories",roles:['user', 'admin']},
+			{path:"events",roles:['user', 'admin']},
+			{path:"expensepaids",roles:['user', 'admin']},
+			{path:"fundingopportunities",roles:['user', 'admin']},
+			{path:"mentoringrecords",roles:['mentor', 'admin']}
+
 		];
 
 		var result_can_next = true;

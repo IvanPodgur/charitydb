@@ -7,10 +7,18 @@ var Donation = new keystone.List('Donation', {
 });
 
 Donation.add({
-	date: { type: Types.Date, required: true, initial: true  },
 	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
-	donor: {type: String, required: true, initial: true },
-	amount: {type: String, required: true, initial: true}
+	name: {type: String, initial: true },
+	contact: {type: String, initial: true },
+	number: {type: String, initial: true },
+	email: {type: String, initial: true },
+	address: {type: String, initial: true },
+	postCode: {type: String, initial: true },
+	dateOfDonation: { type: Types.Date, initial: true  },
+	paymentMethod: {type: String, initial: true },
+	frequency: {type: String, initial: true },
+	amount: {type: String, initial: true},
+	region: {type: String, initial: true}
 
 });
 

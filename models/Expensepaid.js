@@ -20,11 +20,11 @@ Expensepaid.add({
 	total: {type: String, initial: true },
 	recieptDetails: {type: String, initial: true },
 	method: {type: String, initial: true },
-	recipetTotal: {type: String, required: true, initial: true },
-	recipetFees: {type: String, required: true, initial: true },
-	paymentDate: { type: Types.Date, required: true, initial: true  },
+	recipetTotal: {type: String, initial: true },
+	recipetFees: {type: String, initial: true },
+	paymentDate: { type: Types.Date, initial: true  },
 	checkno: { type: String },
-	eduFund: {type: String, required: true, initial: true },
+	eduFund: {type: String, initial: true },
 	type: {type: String, initial: true},
 	comments: {types: String}
 
