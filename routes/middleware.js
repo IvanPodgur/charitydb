@@ -71,7 +71,7 @@ exports.initMyAuthorization = function(req, res, next) {
 			{path:"donations",roles:['finance', 'admin']},
 			{path:"yes",roles:['admin']},
 			{path:"volunteers",roles:['user', 'admin']},
-			{path:"referrals",roles:['user', 'admin']},
+			{path:"referrals",roles:['user', 'admin', 'young']},
 			{path:"volunteeravailabilities",roles:['user', 'admin']},
 			{path:"referralcontacts",roles:['user', 'admin']},
 			{path:"servicedirectories",roles:['user', 'admin']},
