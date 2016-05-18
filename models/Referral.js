@@ -34,7 +34,8 @@ Referral.add(
 		frequency: {type: String},
 		startDate: {type: Types.Date},
 		lastDate: {type: Types.Date},
-		totalPaid: {type: String}
+		totalPaid: {type: String},
+		outcome: {type: Types.Textarea}
 	},'Mentoring details', {
 		scaleOfVulnerability: { type: Types.Select,  options: '1, 2, 3, 4, 5'},
 		supportNeeds: {type: String},
