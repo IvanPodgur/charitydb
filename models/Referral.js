@@ -35,7 +35,7 @@ Referral.add(
 		startDate: {type: Types.Date},
 		lastDate: {type: Types.Date},
 		totalPaid: {type: String},
-		outcome: {type: Types.Textarea}
+		EFoutcome: {type: Types.Textarea}
 	},'Mentoring details', {
 		scaleOfVulnerability: { type: Types.Select,  options: '1, 2, 3, 4, 5'},
 		supportNeeds: {type: String},
@@ -52,7 +52,7 @@ Referral.add(
 		personalDevPlanMnth1: { type: Types.Select,  options: 'yes, no' },
 		personalDevPlanMnth2: { type: Types.Select,  options: 'yes, no'  },
 		personalDevPlanMnth3: { type: Types.Select,  options: 'yes, no'  },
-		outcome: {type: Types.Textarea}
+		MentoringOutcome: {type: Types.Textarea}
 	},'India Specific Details', {
 		caste: { type: String },
 		fathersName: {type: String},
