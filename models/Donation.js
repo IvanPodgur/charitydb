@@ -2,7 +2,9 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var Donation = new keystone.List('Donation', {
-	map: { name: 'donor' }
+	map: { name: 'donor' },
+	autokey: { from: 'name', path: 'key', unique: false }
+
 
 });
 
