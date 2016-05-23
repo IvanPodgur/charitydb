@@ -2,15 +2,15 @@ var keystone = require('keystone');
 var Types = keystone.Field.Types;
 
 var Donation = new keystone.List('Donation', {
-	map: { name: 'donor' },
-	autokey: { from: 'name', path: 'key', unique: true }
+	autokey: { from: 'name', path: 'key', unique: true },
+	map: { name: 'donor' }
 
 
 });
 
 Donation.add({
 	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
-	name: {type: String, initial: true },
+	name: {type: String, initial: true, required: true },
 	contactNumber: {type: String, initial: true },
 	email: {type: String, initial: true },
 	address: {type: String, initial: true },
