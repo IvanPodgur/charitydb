@@ -3,7 +3,7 @@ var Types = keystone.Field.Types;
 
 var Donation = new keystone.List('Donation', {
 	autokey: { from: 'name', path: 'key', unique: true },
-	map: { name: 'donor' }
+	map: { name: 'name' }
 
 
 });
