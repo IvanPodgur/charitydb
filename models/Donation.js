@@ -9,8 +9,7 @@ var Donation = new keystone.List('Donation', {
 Donation.add({
 	project: { type: Types.Select,  options: 'Mentoring, EducationFund, India, Cambodia' , required: true, initial: true},
 	name: {type: String, initial: true },
-	contact: {type: String, initial: true },
-	number: {type: String, initial: true },
+	contactNumber: {type: String, initial: true },
 	email: {type: String, initial: true },
 	address: {type: String, initial: true },
 	postCode: {type: String, initial: true },
